@@ -1,6 +1,6 @@
-//创建app应用模块
+//创建app应用模块,依赖模块,路由模块
 
-    var yike=angular.module("yike",[]);
+    var yike=angular.module("yike",["ctrls","ngRoute"]);//yike 要依赖 ctrls模块
    /* 
    调用run方法
    该方法的作用是,当模块创建好就可以直接执行
@@ -23,7 +23,7 @@
       }else{
         $rootScope.left=false;  //否则显示的时候,设为不显示,切换显示和隐藏的效果
       } */
-      //如果不存在left的值为false,不显示的时候,则把把left的值设为true,显示,否则显示的时候,设为不显示,切换显示和隐藏的效果
+      //3.如果不存在left的值为false,不显示的时候,则把把left的值设为true,显示,否则显示的时候,设为不显示,切换显示和隐藏的效果
      $rootScope.left=!$rootScope.left;
      //对导航栏中所有的dd的移动和隐藏
      var dd = document.querySelectorAll("dd");
@@ -49,4 +49,33 @@
      }
    }
   }]);
+  //修复锚点值的改变
+  yike.config(["$locationProvider",function($locationProvider){
+    $locationProvider.hashPrefix(""); //修复锚点值
+  }])
+
+  //配置路由
+  yike.config(["$routeProvider",function($routeProvider){
+    $routeProvider.when("/",{
+      redirectTo:"/index"//跳转到index处理 (指定的位置)
+    }).when("/index",{
+      templateUrl:"./views/test.html", //将要在ng-view区域显示的试图
+      controller:"index"  //调用index控制器
+    }).when("/older",{
+       templateUrl:"./views/test.html",
+       controller:"older"
+    }).when("/author",{
+      templateUrl:"./views/test.html",
+       controller:"author"
+    }).when("/category",{
+      templateUrl:"./views/test.html", //将要在ng-view区域显示的试图
+      controller:"category"  //调用index控制器
+    }).when("/favourite",{
+      templateUrl:"./views/test.html", //将要在ng-view区域显示的试图
+      controller:"favourite"  //调用index控制器
+    }).when("/settings",{
+      templateUrl:"./views/test.html", //将要在ng-view区域显示的试图
+      controller:"settings"  //调用index控制器
+    })
+  }])
    
