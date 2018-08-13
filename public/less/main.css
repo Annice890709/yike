@@ -495,7 +495,7 @@ img {
   overflow-x: hidden;
 }
 .collapse {
-  transform: translate(12.8125rem);
+  transform: translate(12.8125rem);/* x轴,y轴同时移动 */
 }
 .navs {
   width: 12.8125rem;
