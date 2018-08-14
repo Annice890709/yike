@@ -59,7 +59,7 @@
     $routeProvider.when("/",{
       redirectTo:"/index"//跳转到index处理 (指定的位置)
     }).when("/index",{
-      templateUrl:"./views/test.html", //将要在ng-view区域显示的试图
+      templateUrl:"./views/list.html", //将要在ng-view区域显示的试图
       controller:"index"  //调用index控制器
     }).when("/older",{
        templateUrl:"./views/test.html",

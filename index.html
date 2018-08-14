@@ -42,14 +42,7 @@
 			</div>
 			<!-- 主体 -->
 			<div ng-class="{body:true,collapse:left}"><!-- 加类,改变类collapse的值,来改变主体是否显示 -->
-				<div class="item">
-					<!-- 日期分类 -->
-					<div class="mark">13Aug</div>
-					<ul class="posts large">
-						<!-- 文章 -->
-				    <li ng-view></li><!-- 先删除所有的li,在写占位符,放置所有的li -->
-					</ul>
-				</div>
+				<div ng-view></div><!-- 占位显示ul和 li 被视图层list代替,引入list视图 -->
 			</div>
 		</div>
 	</div>
