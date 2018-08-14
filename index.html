@@ -18,7 +18,7 @@
 					</div>
 					<span>登录</span>
 				</dt>
-				num:{{num}}   <!--  -->
+				num:{{num}}   <!--测试是否能获取下标  -->
 				<dd ng-class="{active:$index==num}" ng-repeat="nav in navs"><!-- 遍历后台数据navs -->
 					<a href="{{nav.link}}" class="{{nav.icon}}" ng-click="toggle();"><!-- 把要显示的数据,用nav.link 显示出来 -->
 						<span>{{nav.text}}</span>             <!-- 调用toggle()方法,来显示/隐藏切换 -->
