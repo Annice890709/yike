@@ -1,8 +1,8 @@
 
 	<!-- 主体 -->
 <div class="item">
-	<div class="mark">13Aug</div>
-		<ul class="posts large">
+	<div class="mark">{{now}}</div>
+		<ul class="posts large"><!-- large的类是index.html原来的内容 -->
 			<!-- 文章 -->
 			<li ng-repeat="post in posts">         <!-- 遍历的对象,获取属性值 -->
 				<span href="javascript:;" class="tag" ng-if="post.column.name">{{post.column.name}}</span>
@@ -13,7 +13,7 @@
 						<p ng-if="post.display_style!=10003" ng-class="{only:post.display_style==10001}">{{post.abstract}}</p><!-- 判断p节点是否存在-->
 						 <!-- ng-class是一个对象,要显示在页面上,要加{} ,再判断div的两个类
 						根据类名判断是哪个div-->
-						<div ng-class="{thumb:post.display_style==10002,gallery:post.display_style==10003}">
+						<div ng-class="{thumb:post.display_style==10002,gallery:post.display_style==10003}" ng-if="post.display_style!=10001"><!-- 最后一句判断div.brief下的div是否存在 -->
 							<!-- 获取遍历对象的属性值,属性是数组的情况,数组里面img是对象.属性获取值 -->
 							<img ng-src="{{post.thumbs[0].small.url}}" ng-if="post.display_style==10002">
 							<!-- 判断是否存在div下面是否还有div.img-box,10002是没有的 -->
@@ -25,49 +25,16 @@
 					</div>							
 				</div>
 			</li>
-	<!-- 		<li>
-				<span href="javascript:;" class="tag">去远方</span>
-				<div class="cont">
-					<h3>朝圣山南扎央宗--探索藏文化之源</h3>
-					<div class="brief">
-						<div class="gallery">
-							<div class="img-box">
-								<img src="./uploads/post_3.png" alt="">
-							</div>
-							<div class="img-box">
-								<img src="./uploads/post_4.png" alt="">
-							</div>
-							<div class="img-box">
-								<img src="./uploads/post_5.png" alt="">
-							</div>
-						</div>
-					</div>							
-				</div>
-			</li>
-			<li>
-				<span href="javascript:;" class="tag">去远方</span>
-				<div class="cont">
-					<h3>朝圣山南扎央宗--探索藏文化之源探索藏文化之源探索藏文化之源</h3>
-					<div class="brief">
-						<p>那里有个很窄的洞，钻进去曾是莲花生大师修行的地方，在藏民心中钻洞是为了洗清</p>
-						<div class="thumb">
-							<img src="./uploads/post_1.png" alt="">
-						</div>
-					</div>							
-				</div>
-			</li>
-			<li>
-				<span href="javascript:;" class="tag">去远方</span>
-				<div class="cont">
-					<h3>朝圣山南扎央宗--探索藏文化之源探索藏文化之源探索藏文化之源</h3>
-					<div class="brief">
-						<p>那里有个很窄的洞，钻进去曾是莲花生大师修行的地方，在藏民心中钻洞是为了洗清</p>
-						<div class="thumb">
-							<img src="./uploads/post_1.png" alt="">
-						</div>
-					</div>							
-				</div>
-			</li> -->
+					
 		</ul>
 </div>
-
+ <!-- 可以代替div的第二种的写法 -->
+ <!-- <div class="thumbs" ng-if="post.display_style==10002">
+	 <img src="" alt="">
+ </div>
+ <div class="gallery" ng-if="post.display_style==10003">
+	 <div class="img-box">
+		 <img src="" alt="">
+	 </div>
+ </div>
+ -->

@@ -37,11 +37,15 @@
 			<div  ng-class="{header:true,collapse:left}">
 				<!-- 点击头部 a 三条横杠的链接,触发(左导航/头部/主体内容)整个面板  显示和隐藏 -->
 				<a href="javascript:;" class="menu icon-menu" ng-click="toggle();"></a>
-				<h2>今日一刻</h2>
+				<h2>{{title}}</h2>
 				<a href="javascript:;" class="search icon-search"></a>
 			</div>
 			<!-- 主体 -->
 			<div ng-class="{body:true,collapse:left}"><!-- 加类,改变类collapse的值,来改变主体是否显示 -->
+				<div ng-show="show">
+					<!-- 动态加载图,等待切换页面时间 -->
+					<img src="public/images/loging.jpg" alt="">
+				</div>
 				<div ng-view></div><!-- 占位显示ul和 li 被视图层list代替,引入list视图 -->
 			</div>
 		</div>
@@ -51,5 +55,6 @@
 	<script src="scripts/app.js"></script>
 	<script src="scripts/controllesr.js"></script>
 	<script src="bower_components/angular-route/angular-route.js"></script>
+	<!-- <script src="scripts/toggle.js"></script> -->
 </body>
 </html>

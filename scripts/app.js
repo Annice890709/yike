@@ -27,7 +27,7 @@
      $rootScope.left=!$rootScope.left;
      //对导航栏中所有的dd的移动和隐藏
      var dd = document.querySelectorAll("dd");
-     console.log(dd);
+     //console.log(dd);
      //遍历dd,将每一个dd设置位移
      //当$rootScope.left的值为true时,需要向右移动,false时,向左移动
      if($rootScope.left){//导航栏向右显示(位移0)
@@ -62,20 +62,23 @@
       templateUrl:"./views/list.html", //将要在ng-view区域显示的试图
       controller:"index"  //调用index控制器
     }).when("/older",{
-       templateUrl:"./views/test.html",
+       templateUrl:"./views/older.html",
        controller:"older"
     }).when("/author",{
-      templateUrl:"./views/test.html",
+      templateUrl:"./views/author.html",
        controller:"author"
     }).when("/category",{
-      templateUrl:"./views/test.html", //将要在ng-view区域显示的试图
-      controller:"category"  //调用index控制器
+      templateUrl:"./views/category.html",//将要在ng-view区域显示的试图
+      controller:"category"
+      //调用index控制器
     }).when("/favourite",{
-      templateUrl:"./views/test.html", //将要在ng-view区域显示的试图
-      controller:"favourite"  //调用index控制器
+      templateUrl:"./views/favourite.html",//将要在ng-view区域显示的试图
+      controller:"favourite"
+      //调用index控制器
     }).when("/settings",{
-      templateUrl:"./views/test.html", //将要在ng-view区域显示的试图
-      controller:"settings"  //调用index控制器
+      templateUrl:"./views/settings.html",//将要在ng-view区域显示的试图
+        //调用index控制器
+        controller:"settings"
     })
   }])
    
